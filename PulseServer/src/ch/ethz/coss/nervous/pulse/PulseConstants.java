@@ -22,6 +22,7 @@
  *
  * 	Author:
  * 	Prasad Pulikal - prasad.pulikal@gess.ethz.ch  - Initial design and implementation
+ *  Dario Leuchtmann - ldario@student.ethz.ch - Add Acc and Gyro
  *******************************************************************************/
 package ch.ethz.coss.nervous.pulse;
 
@@ -30,6 +31,8 @@ public class PulseConstants {
 	public static String PULSE_LIGHT_LABEL = "Light";
 	public static String PULSE_NOISE_LABEL = "Noise";
 	public static String PULSE_TEXT_LABEL = "Message";
+	public static String PULSE_ACC_LABEL = "Acc";
+	public static String PULSE_GYRO_LABEL = "Gyro";
 
 	public static String getLabel(int readingType) {
 
@@ -41,6 +44,10 @@ public class PulseConstants {
 			return PULSE_NOISE_LABEL;
 		case 2:
 			return PULSE_TEXT_LABEL;
+		case 3:
+			return PULSE_ACC_LABEL;
+		case 4:
+			return PULSE_GYRO_LABEL;
 
 		}
 	}

@@ -22,6 +22,7 @@
  *
  * 	Author:
  * 	Prasad Pulikal - prasad.pulikal@gess.ethz.ch  - Initial design and implementation
+ *  Dario Leuchtmann - ldario@student.ethz.ch - Add Acc and Gyro
  *******************************************************************************/
 package ch.ethz.coss.nervous.pulse.sql;
 
@@ -124,6 +125,22 @@ public class SqlRequestWorker extends SqlFetchWorker {
 						
 						properties.addProperty("message", message);
 						
+					} else if (ptmRequest.readingType == 3) {
+						String x = rs.getString("x");
+						String y = rs.getString("y");
+						String z = rs.getString("z");
+						properties.addProperty("readingType", "" + 3);
+						properties.addProperty("x", x);
+						properties.addProperty("y", y);
+						properties.addProperty("z", z);
+					} else if (ptmRequest.readingType == 4) {
+						String x = rs.getString("x");
+						String y = rs.getString("y");
+						String z = rs.getString("z");
+						properties.addProperty("readingType", "" + 4);
+						properties.addProperty("x", x);
+						properties.addProperty("y", y);
+						properties.addProperty("z", z);
 					} else {
 						// System.out.println("Reading instance not known");
 					}

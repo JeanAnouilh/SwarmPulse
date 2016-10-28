@@ -22,6 +22,7 @@
  *
  * 	Author:
  * 	Prasad Pulikal - prasad.pulikal@gess.ethz.ch  - Initial design and implementation
+ *  Dario Leuchtmann - ldario@student.ethz.ch - Add Acc and Gyro
  *******************************************************************************/
 package ch.ethz.coss.nervous.pulse;
 
@@ -32,6 +33,8 @@ import java.util.Scanner;
 
 import ch.ethz.coss.nervous.pulse.model.LightReading;
 import ch.ethz.coss.nervous.pulse.model.NoiseReading;
+import ch.ethz.coss.nervous.pulse.model.AccReading;
+import ch.ethz.coss.nervous.pulse.model.GyroReading;
 import ch.ethz.coss.nervous.pulse.model.TextVisual;
 import ch.ethz.coss.nervous.pulse.model.Visual;
 
@@ -138,6 +141,16 @@ public class WriteJSON {
 				} else if (reading.type == 2) {
 					properties.addProperty("readingType", "" + 2);
 					properties.addProperty("message", "" + ((TextVisual) reading).textMsg);
+				} else if (reading.type == 3) {
+					properties.addProperty("readingType", "" + 3);
+					properties.addProperty("message", "" + ((AccReading) reading).x);
+					properties.addProperty("message", "" + ((AccReading) reading).y);
+					properties.addProperty("message", "" + ((AccReading) reading).z);
+				} else if (reading.type == 4) {
+					properties.addProperty("readingType", "" + 4);
+					properties.addProperty("message", "" + ((GyroReading) reading).x);
+					properties.addProperty("message", "" + ((GyroReading) reading).y);
+					properties.addProperty("message", "" + ((GyroReading) reading).z);
 				} else {
 					// System.out.println("Reading instance not known");
 				}
