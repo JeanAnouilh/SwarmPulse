@@ -119,5 +119,23 @@
                         </attribute>
                     </attributes>
                 </sensor>
+                <sensor>
+                    <sensorName>Temperature</sensorName>
+                    <sensorID>0000000000000005</sensorID>
+                    <attributes>
+                        <attribute>
+                            <name>Temperature</name>
+                            <type>FLOAT</type>
+                        </attribute>
+                        <attribute>
+                            <name>Lat</name>
+                            <type>FLOAT</type>
+                        </attribute>
+                        <attribute>
+                            <name>Lon</name>
+                            <type>FLOAT</type>
+                        </attribute>
+                    </attributes>
+                </sensor>
             </sqlsensors>
 </config>

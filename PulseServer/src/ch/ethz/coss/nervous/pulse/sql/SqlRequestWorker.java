@@ -117,14 +117,12 @@ public class SqlRequestWorker extends SqlFetchWorker {
 						message = message.trim();
 						properties.addProperty("readingType", "" + 2);
 						
-						
 						if(message.length() <= 0){
 							message = "***Empty Message***";
 							continue;
 						}
 						
 						properties.addProperty("message", message);
-						
 					} else if (ptmRequest.readingType == 3) {
 						String x = rs.getString("x");
 						String y = rs.getString("y");
@@ -141,6 +139,10 @@ public class SqlRequestWorker extends SqlFetchWorker {
 						properties.addProperty("x", x);
 						properties.addProperty("y", y);
 						properties.addProperty("z", z);
+					} else if (ptmRequest.readingType == 5) {
+						String temperatureVal = rs.getString("Temperature");
+						properties.addProperty("readingType", "" + 5);
+						properties.addProperty("level", temperatureVal);
 					} else {
 						// System.out.println("Reading instance not known");
 					}

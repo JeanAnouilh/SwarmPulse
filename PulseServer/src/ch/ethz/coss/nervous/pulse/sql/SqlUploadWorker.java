@@ -43,6 +43,7 @@ import ch.ethz.coss.nervous.pulse.model.GyroReading;
 import ch.ethz.coss.nervous.pulse.model.LightReading;
 import ch.ethz.coss.nervous.pulse.model.NoiseReading;
 import ch.ethz.coss.nervous.pulse.model.TextVisual;
+import ch.ethz.coss.nervous.pulse.model.TemperatureReading;
 import ch.ethz.coss.nervous.pulse.model.Visual;
 import ch.ethz.coss.nervous.pulse.socket.ConcurrentSocketWorker;
 import ch.ethz.coss.nervous.pulse.utils.Log;
@@ -140,23 +141,26 @@ public class SqlUploadWorker extends ConcurrentSocketWorker {
 					if (reading.type == 0) {
 						// System.out.println("Reading instance of light");
 						properties.addProperty("readingType", "" + 0);
-						properties.addProperty("level", "" + ((LightReading) reading).lightVal);
+						properties.addProperty("Lightlevel", "" + ((LightReading) reading).lightVal);
 					} else if (reading.type == 1) {
 						properties.addProperty("readingType", "" + 1);
-						properties.addProperty("level", "" + ((NoiseReading) reading).soundVal);
+						properties.addProperty("Noiselevel", "" + ((NoiseReading) reading).soundVal);
 					} else if (reading.type == 2) {
 						properties.addProperty("readingType", "" + 2);
 						properties.addProperty("message", "" + ((TextVisual) reading).textMsg);
 					} else if (reading.type == 3) {
 						properties.addProperty("readingType", "" + 3);
-						properties.addProperty("message", "" + ((AccReading) reading).x);
-						properties.addProperty("message", "" + ((AccReading) reading).y);
-						properties.addProperty("message", "" + ((AccReading) reading).z);
+						properties.addProperty("x", "" + ((AccReading) reading).x);
+						properties.addProperty("y", "" + ((AccReading) reading).y);
+						properties.addProperty("z", "" + ((AccReading) reading).z);
 					} else if (reading.type == 4) {
 						properties.addProperty("readingType", "" + 4);
-						properties.addProperty("message", "" + ((GyroReading) reading).x);
-						properties.addProperty("message", "" + ((GyroReading) reading).y);
-						properties.addProperty("message", "" + ((GyroReading) reading).z);
+						properties.addProperty("x", "" + ((GyroReading) reading).x);
+						properties.addProperty("y", "" + ((GyroReading) reading).y);
+						properties.addProperty("z", "" + ((GyroReading) reading).z);
+					} else if (reading.type == 5) {
+						properties.addProperty("readingType", "" + 5);
+						properties.addProperty("Temperaturelevel", "" + ((TemperatureReading) reading).temperatureVal);
 					} else {
 						// System.out.println("Reading instance not known");
 					}
