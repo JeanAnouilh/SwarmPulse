@@ -4,7 +4,7 @@
     <logDisplayVerbosity>15</logDisplayVerbosity>
     <logPath>log.txt</logPath>
     <logWriteVerbosity>15</logWriteVerbosity>
-    <serverPortApps>8445</serverPortApps>
+    <serverPortApps>8447</serverPortApps>
         <serverPortClient>8446</serverPortClient>
             <serverThreads>5</serverThreads>
             <sqlHostname>localhost</sqlHostname>

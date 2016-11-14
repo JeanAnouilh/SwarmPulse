@@ -109,9 +109,17 @@ public class SqlUploadWorker extends ConcurrentSocketWorker {
 					}
 					System.out.println("JSON STRING = " + json);
 					System.out.println("JSON Length = " + json.length());
-
+					
 					if (json.length() <= 0)
 						continue;
+					//Edit JSON STRING
+					if(json.indexOf("HTTP") != -1) {
+						json = json.substring(json.indexOf("{"));
+						System.out.println("NEW JSON STRING = " + json);
+						System.out.println("NEW JSON Length = " + json.length());
+						connected = false;
+					}
+					
 					reading = new JSONDeserializer<Visual>().deserialize(json, Visual.class);
 					feature = new JsonObject();
 
